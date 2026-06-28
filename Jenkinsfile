@@ -19,16 +19,14 @@ stage('Install Dependencies') {
     }
 }
 
-        stage('Run API Tests') {
-            steps {
-                // Executes your pytest regression suite
-                bat '''
-                call venv\\Scripts\\activate
-                pytest --junitxml=results.xml
-                '''
-            }
-        }
+     stage('Run API Tests') {
+    steps {
+        bat '''
+        call venv\\Scripts\\activate
+        pytest --junitxml=test-results/results.xml
+        '''
     }
+}
 
     post {
         always {
