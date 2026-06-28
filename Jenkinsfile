@@ -9,16 +9,17 @@ pipeline {
             }
         }
 
+
         stage('Install Dependencies') {
-            steps {
-                // Creates a virtual environment and installs requirements
-                bat '''
-                python -m venv venv
-                call venv\\Scripts\\activate
-                pip install -r requirements.txt
-                '''
-            }
-        }
+    steps {
+        bat '''
+        "C:\Users\lilly\AppData\Local\Programs\Python\Python314\\python.exe" -m venv venv
+        call venv\\Scripts\\activate
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        '''
+    }
+}
 
         stage('Run API Tests') {
             steps {
