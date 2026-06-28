@@ -18,6 +18,8 @@ def add_user():
     data = request.get_json()
     user_id = data.get('id')
     name = data.get('name')
+    if user_id is None or name is None:
+        return jsonify({"error": "Missing id or name"}), 400
     if user_id in users:
         return jsonify({"error": "User already exists"}), 400
     users[user_id] = name
