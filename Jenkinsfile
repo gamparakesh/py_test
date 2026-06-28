@@ -8,16 +8,20 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-               bat '''
+stage('Install Dependencies') {
+    steps {
+        bat '''
         "C:\\Python314\\python.exe" -m venv venv
         call venv\\Scripts\\activate
         python -m pip install --upgrade pip
         python -m pip install pytest
+        python -m pip install flask
+        python -m pip install websockets
         '''
-            }
-        }
+    }
+}
+
+
 
         stage('Run API Tests') {
             steps {
