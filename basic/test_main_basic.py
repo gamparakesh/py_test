@@ -1,6 +1,6 @@
 import pytest
 
-from main import add, divide
+from basic.main import add, divide
 
 
 def test_add():
