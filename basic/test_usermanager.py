@@ -2,7 +2,7 @@ import pytest
 from basic.usermanager import usermanager
 
 
-# @pytest.fixture
+@pytest.fixture
 def user_manager():
     return usermanager()
 
