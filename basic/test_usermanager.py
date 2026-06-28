@@ -1,5 +1,5 @@
 import pytest
-from usermanager import usermanager
+from basic.usermanager import usermanager
 
 
 # @pytest.fixture
