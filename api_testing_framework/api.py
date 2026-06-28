@@ -5,10 +5,10 @@ app = Flask(__name__)
 users = {}
 
 
-@app.route('/users', methods=['POST'])
-def get_users(user_id):
+@app.route('/users/<user_id>', methods=['GET'])
+def get_user(user_id):
     user = users.get(user_id)
-    if user:
+    if user is not None:
         return jsonify({"id": user_id, "name": user}), 200
     return jsonify({"error": "User not found"}), 404
 
@@ -21,4 +21,4 @@ def add_user():
     if user_id in users:
         return jsonify({"error": "User already exists"}), 400
     users[user_id] = name
-    return jsonify({"message": "User added successfully"}), 201
+    return jsonify({"id": user_id, "name": name}), 201

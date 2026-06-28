@@ -1,13 +1,13 @@
 import pytest
 
 
-@pytest.fixture(params=["a", "b"])
-def my_fixture(request):
-    print(request.param)
+@pytest.fixture(name="my_fixture", params=["a", "b"])
+def _my_fixture(request):
+    return request.param
 
 
 def test_my_fixture(my_fixture):
-    print("Login Successful")
+    assert my_fixture in ["a", "b"]
 
 
 @pytest.mark.parametrize("input1,input2,expected", [(1, 2, 3), (3, 4, 8), (5, 6, 10), (7, 8, 15)])

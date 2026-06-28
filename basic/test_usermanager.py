@@ -2,8 +2,8 @@ import pytest
 from usermanager import usermanager
 
 
-# @pytest.fixture
-def user_manager():
+@pytest.fixture(name="user_manager")
+def _user_manager_fixture():
     return usermanager()
 
 

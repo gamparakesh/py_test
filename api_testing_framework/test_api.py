@@ -2,11 +2,11 @@ import pytest
 from api import app
 
 
-@pytest.fixture
-def client():
+@pytest.fixture(name='client')
+def client_fixture_fixture():
     app.config['TESTING'] = True
-    with app.test_client() as client:
-        yield client
+    with app.test_client() as flask_client:
+        yield flask_client
 
 
 def test_add_user(client):
