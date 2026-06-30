@@ -1,2 +1,7 @@
 def get_weather(temp):
-    return "hot" if temp > 21 else "cold"
+    if temp > 21:
+        return "hot"
+    elif temp == 21:
+        return "neutral"
+    else:
+        return "cold"
