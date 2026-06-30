@@ -14,11 +14,10 @@ stage('Install Dependencies') {
         "C:\\Python314\\python.exe" -m venv venv
         call venv\\Scripts\\activate
         python -m pip install --upgrade pip
-        python -m pip install pytest
-        python -m pip install flask
-        python -m pip install websockets
+        python -m pip install -r pega-api-automation/requirements.txt
         '''
     }
+}
 }
 
 
